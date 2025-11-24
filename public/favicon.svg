@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Adobe Illustrator 24.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="800px"
+	 height="800px" viewBox="0 0 800 800" style="enable-background:new 0 0 800 800;" xml:space="preserve">
+<style type="text/css">
+	.st0{stroke:#000000;stroke-miterlimit:10;}
+	.st1{display:none;}
+	.st2{display:inline;opacity:0.2706;fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
+	.st3{display:inline;opacity:0.251;fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
+</style>
+<g id="Calque_1">
+	<path class="st0" d="M131.65,542c0.05-0.07,126.67-0.01,126.64,0l-0.01,0.01c-20.02,22.17-16.6,56.75,7.38,74.56
+		c13.92,10.34,29.66,22.01,45.35,33.64c53.31,39.52,126.26,39.31,179.34-0.52c29.32-22,60.1-45.09,82.59-61.95
+		c19.29-14.47,25.49-40.65,14.73-62.23c-3.84-7.7-6.72-13.52-6.66-13.51c0.15,0-434.5,0-434.5,0L400,0.57L611,422
+		c0,0-232.76,0.04-232.72,0c0.42-0.42,67.94-68.34,94.55-94.78c6.16-6.12,7.67-15.53,3.72-23.27
+		c-12.83-25.14-40.76-81.48-59.26-118.91c-7.34-14.85-28.5-14.86-35.85-0.01C341.57,265.61,249.09,452.48,249.25,452
+		c-0.57,0.45,374.56-1.53,376.75,0l46.15,92.3c10.81,21.63,4.6,47.89-14.76,62.37c-40.6,30.36-110.62,82.96-167.38,125.64
+		c-53.34,40.1-126.75,40.14-180.13,0.1L144.41,608.31c-19.27-14.45-25.5-40.59-14.81-62.18C130.86,543.58,131.65,542,131.65,542z"/>
+</g>
+<g id="Construction" class="st1">
+	<line class="st2" x1="0.28" y1="0.28" x2="797.9" y2="797.9"/>
+	<line class="st2" x1="2.1" y1="798.18" x2="799.72" y2="0.57"/>
+	<line class="st2" x1="800" y1="800" x2="400" y2="0"/>
+	<line class="st2" x1="725" y1="800" x2="325" y2="0"/>
+	<line class="st2" x1="3.9" y1="800" x2="400" y2="0"/>
+	<line class="st2" x1="76.95" y1="800" x2="473.05" y2="0"/>
+	<line class="st2" x1="800" y1="500" x2="400" y2="800"/>
+	<line class="st2" x1="690" y1="500" x2="290" y2="800"/>
+	<line class="st2" x1="0" y1="500" x2="400" y2="800"/>
+	<line class="st2" x1="110" y1="500" x2="510" y2="800"/>
+	<line class="st3" x1="0" y1="452" x2="800" y2="452"/>
+	<line class="st3" x1="0" y1="422" x2="800" y2="422"/>
+	<line class="st3" x1="0" y1="512" x2="800" y2="512"/>
+	<line class="st3" x1="0" y1="542" x2="800" y2="542"/>
+</g>
+</svg>
