@@ -13,7 +13,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Build project
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies and build
         run: |
           npm install
           npm run build
@@ -25,9 +30,11 @@ jobs:
           username: deploy
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
+            node -v
+            git --version
             cd /home/deploy/VibeSens
             git pull origin Production
             npm install
             npm run build
             rm -rf /var/www/VibSens/*
-            ln -s /home/deploy/VibeSens/build /var/www/VibSens
+            ln -sfn /home/deploy/VibeSens/build /var/www/VibSens
