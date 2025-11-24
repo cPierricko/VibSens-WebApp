@@ -18,11 +18,11 @@ jobs:
           npm install
           npm run build
 
-      - name: Copy build files to VPS
+      - name: Setup SSH key and copy build files to VPS
         run: |
-          rsync -avz --delete ./dist/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:~/VibSens_build/
-        env:
-          RSYNC_RSH: 'ssh -i ${{ secrets.VPS_SSH_PRIVATE_KEY }} -o StrictHostKeyChecking=no'
+          echo "${{ secrets.VPS_SSH_PRIVATE_KEY }}" > private_key
+          chmod 600 private_key
+          rsync -avz --delete -e "ssh -i private_key -o StrictHostKeyChecking=no" ./dist/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:~/VibSens_build/
 
       - name: Link build dir to /var/www/VibSens on VPS
         uses: appleboy/ssh-action@master
