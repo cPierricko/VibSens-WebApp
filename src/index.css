@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0f172a;
+  --color-surface: #1e293b;
+  --color-surface-light: #334155;
+  --color-primary: #06b6d4;
+  --color-primary-glow: rgba(6, 182, 212, 0.5);
+  --color-secondary: #6366f1;
+  --color-accent: #f472b6;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+
+  --font-sans: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+:root {
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 100%);
+  background-attachment: fixed;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom Utilities for Glassmorphism and Glows */
+@utility glass-panel {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+@utility glass-panel-hover {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(6, 182, 212, 0.3);
+  box-shadow: 0 0 15px var(--color-primary-glow);
+}
+
+@utility text-glow {
+  text-shadow: 0 0 10px var(--color-primary-glow);
+}
+
+@utility border-glow {
+  box-shadow: 0 0 5px var(--color-primary-glow);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
