@@ -32,5 +32,5 @@ jobs:
           key: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            sudo rm -rf /var/www/VibSens
-            sudo ln -s ~/VibSens_build /var/www/VibSens
+            rm -rf /var/www/VibSens
+            ln -s ~/VibSens_build /var/www/VibSens
