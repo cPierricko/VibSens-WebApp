@@ -106,7 +106,8 @@ export const BLEProvider: React.FC<{ children: React.ReactNode }> = ({ children 
             const batteryChar = await batteryService.getCharacteristic(CHAR_UUIDS.BATTERY);
             try {
                 const initialBattery = await batteryChar.readValue();
-                updateSensor(sensorId, { batteryLevel: initialBattery.getUint8(0) });
+                // Read as uint16 little-endian (mV)
+                updateSensor(sensorId, { batteryLevel: initialBattery.getUint16(0, true) });
             } catch (e) {
                 console.warn('Failed to read initial battery level:', e);
             }
@@ -115,8 +116,9 @@ export const BLEProvider: React.FC<{ children: React.ReactNode }> = ({ children 
             batteryChar.addEventListener('characteristicvaluechanged', (event: Event) => {
                 const value = (event.target as BluetoothRemoteGATTCharacteristic).value;
                 if (value) {
-                    const level = value.getUint8(0);
-                    console.log(`Battery level updated for ${sensorId}: ${level}%`);
+                    // Read as uint16 little-endian (mV)
+                    const level = value.getUint16(0, true);
+                    console.log(`Battery voltage updated for ${sensorId}: ${level}mV`);
                     updateSensor(sensorId, { batteryLevel: level });
                 }
             });
