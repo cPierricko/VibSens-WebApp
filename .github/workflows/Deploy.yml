@@ -1,25 +1,20 @@
-name: Deploy to VPS on production
-
+name: Stardust Shard Deploy
 on:
   push:
-    branches:
-      - production
-
+    branches: [ main ]
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Install dependencies and build
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: npm run build
+      - name: Package & Push
         run: |
-          npm install
-          npm run build
-
-      - name: Setup SSH key and copy build files to VPS
-        run: |
-          echo "${{ secrets.VPS_SSH_PRIVATE_KEY }}" > private_key
-          chmod 600 private_key
-          rsync -avz --delete -e "ssh -i private_key -o StrictHostKeyChecking=no" ./dist/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/VibSens/
+          cd dist && zip -r ../deploy.zip . && cd ..
+          curl -X POST "${{ secrets.STARDUST_API_URL }}/api/shards/push" \
+            -H "X-Stardust-Token: ${{ secrets.STARDUST_SHARD_TOKEN }}" \
+            -F "app=@deploy.zip"
