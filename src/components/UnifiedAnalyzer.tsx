@@ -203,9 +203,9 @@ export const UnifiedAnalyzer: React.FC = () => {
                 const buffer = continuousBuffersRef.current.get(sensor.id);
                 if (!buffer) return;
 
-                const x = sensor.lastData.getInt16(0, true) / 2048;
-                const y = sensor.lastData.getInt16(2, true) / 2048;
-                const z = sensor.lastData.getInt16(4, true) / 2048;
+                const x = sensor.lastData.getInt16(0, true) / 166.6;
+                const y = sensor.lastData.getInt16(2, true) / 166.6;
+                const z = sensor.lastData.getInt16(4, true) / 166.6;
 
                 const now = Date.now();
                 if (buffer.startTime === 0) buffer.startTime = now;
@@ -300,9 +300,9 @@ export const UnifiedAnalyzer: React.FC = () => {
                     const zData: number[] = [];
 
                     for (let i = 0; i < totalSamples; i++) {
-                        xData.push(allData[i * 3] / 2048);
-                        yData.push(allData[i * 3 + 1] / 2048);
-                        zData.push(allData[i * 3 + 2] / 2048);
+                        xData.push(allData[i * 3] / 166.6);
+                        yData.push(allData[i * 3 + 1] / 166.6);
+                        zData.push(allData[i * 3 + 2] / 166.6);
                     }
 
                     setLastShockData(sensor.id, { x: xData, y: yData, z: zData });
