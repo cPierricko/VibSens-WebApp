@@ -4,6 +4,7 @@ import { Sidebar } from './components/Sidebar';
 import { TopBar } from './components/TopBar';
 import { ConnectedContent } from './components/ConnectedContent';
 
+
 import logo from './assets/logo.png';
 
 function App() {
